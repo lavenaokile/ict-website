@@ -16,11 +16,11 @@ html {
   scroll-behavior: smooth;
 }
  body {
- margin:0;
- font-family:Arial, sans-serif;
- background-color: #f4f4f4;
- color:#333;
- }
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--secondary-color);
+  line-height: 1.6;
+}
 
  .site-header {
   position: sticky;
