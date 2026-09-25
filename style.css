@@ -135,7 +135,7 @@ article {
 }
 
 .contact-form button {
-	background-color: #0a74da;
+	background-color: #007bff;
 	color: white;
 	padding: 12px 20px;
 	border: none;
@@ -145,7 +145,7 @@ article {
 }
 
 .contact-form button:hover {
-	background-color: #005bb5;
+	background-color: #0056b3;
 }
 
 .image-text-box {
