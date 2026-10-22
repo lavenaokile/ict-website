@@ -1,52 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>ICT Consultant</title>
-  <link rel="stylesheet" href="style.css">
 
- </head>
- <body>
+  <title>About Us | ICT Consulting</title>
+  <meta name="description" content="Learn about ICT Consulting, our mission, vision, values and commitment to practical technology solutions.">
 
- <header>
- <h1>ABOUT US</h1>
- </header>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
- <nav>
- <a href="index.html">Home</a>
- <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="portfolio.html">Portfolio</a>
-    <a href="blog.html">Blog</a>
- <a href="contact.html">Contact</a>
- </nav>
+    :root {
+      --blue: #155eef;
+      --dark-blue: #102a56;
+      --light-blue: #edf4ff;
+      --text: #243247;
+      --muted: #64748b;
+      --white: #ffffff;
+    }
 
- <main>
- 	<div class="text-image-row">
- <div class="text-content">
- <h2>About Us</h2>
-<p>Your trusted trusted ICT Partner. We are an ICT consulting company providing professional technology solutions to individuals,
-	businesses, schools and organizations. Our goal is to make technology simple, rreliable and accessible.
-We specialize in providing IT support, software solutions, and technology consultations to businesses of all sizes.</p>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<h3>Our Mission</h3>
-<p>To empower businesses through innovative and efficient ICT solutions that transform the way they operate and grow.</p>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+    }
 
-<h3>Meet the Team</h3>
-<ul>
-	<li><strong>Lavena Okile</strong> - Lead Consultant</li>
-	<li><strong>Timothy Bahati</strong> - System Analyst</li>
-	<li><strong>Micheal Lee</strong> - Network Engineer</li>
-</ul>
-</div>
- <img src="about 2.jpg" alt="ICT Consultant" class="side-image">
-</div>
- </main>
+    a {
+      text-decoration: none;
+    }
 
- <footer>
- &copy;2025 ICT Consultant
- </footer>
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
 
- </body>
- </html>
+    /* Navigation */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid #e6edf5;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark-blue);
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue);
+    }
+
+    .nav-links .nav-contact {
+      background: var(--blue);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #104bc4;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #cbd9ed;
+      color: var(--dark-blue);
+      background: var(--white);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* Page introduction */
+    .page-hero {
+      padding: 85px 0;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 90% 10%, #d9e8ff 0%, transparent 40%),
+        linear-gradient(120deg, #f5f9ff, #eaf2ff);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 13px;
+      background: #dceaff;
+      color: #1245a8;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: var(--dark-blue);
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 span {
+      color: var(--blue);
+    }
+
+    .page-hero p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    /* About content */
+    .section {
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-copy h2,
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.25;
+      color: var(--dark-blue);
+      margin-bottom: 20px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .about-visual {
+      background: linear-gradient(145deg, #174bb5, #10264e);
+      color: var(--white);
+      min-height: 340px;
+      border-radius: 22px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 20px 45px #102a5620;
+    }
+
+    .about-visual .big-icon {
+      font-size: 55px;
+      margin-bottom: 18px;
+    }
+
+    .about-visual h3 {
+      font-size: 27px;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .about-visual p {
+      color: #dbe7ff;
+    }
+
+    /* Mission and vision */
+    .purpose {
+      background: #f5f8fd;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      text-align: center;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .purpose-card {
+      background: var(--white);
+      border: 1px solid #e3eaf4;
+      border-radius: 16px;
+      padding: 30px;
+      transition: 0.2s ease;
+    }
+
+    .purpose-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px #102a5610;
+    }
+
+    .purpose-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--light-blue);
+      font-size: 27px;
+      margin-bottom: 18px;
+    }
+
+    .purpose-card h3 {
+      color: var(--dark-blue);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .purpose-card p {
+      color: var(--muted);
+    }
+
+    /* Values */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .value-card {
+      border: 1px solid #e3eaf4;
+      border-radius: 15px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .value-card:hover {
+      border-color: #b8d0ff;
+      transform: translateY(-4px);
+    }
+
+    .value-card .value-icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .value-card h3 {
+      font-size: 17px;
+      color: var(--dark-blue);
+      margin-bottom: 8px;
+    }
+
+    .value-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Call to action */
+    .cta {
+      background: var(--dark-blue);
+      color: var(--white);
+      padding: 65px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      line-height: 1.25;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      color: #d4e1f5;
+      margin: 0 auto 25px;
+    }
+
+    /* Footer */
+    footer {
+      background: #091a35;
+      color: #d4e1f5;
+      padding: 27px 0;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--white);
+    }
+
+    footer p + p {
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px 15px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      .nav-links .nav-contact {
+        padding: 7px 10px;
+      }
+
+      .page-hero {
+        padding: 55px 0;
+      }
+
+      .page-hero p {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 55px 0;
+      }
+
+      .purpose-grid,
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        min-height: 270px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">
+        ICT<span>Consulting.</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a class="nav-contact" href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">GET TO KNOW US</span>
+
+        <h1>About <span>ICT Consulting</span></h1>
+
+        <p>
+          We believe technology should make work easier, businesses
+          stronger and digital opportunities more accessible.
+          Our goal is to provide practical ICT solutions that help
+          people and organizations move forward.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container about-grid">
+
+        <div class="about-copy">
+          <span class="eyebrow">WHO WE ARE</span>
+
+          <h2>Helping You Make Technology Work for You</h2>
+
+          <p>
+            ICT Consulting focuses on helping individuals and
+            businesses navigate everyday technology challenges.
+            Our services cover IT support, web design, computer
+            networking, software development, cybersecurity,
+            hardware repair, database management and IT consultancy.
+          </p>
+
+          <p>
+            We believe good technology solutions begin with
+            understanding the problem. We aim to recommend
+            practical, reliable and user-friendly approaches
+            suited to each client's needs.
+          </p>
+
+          <a class="btn btn-primary" href="services.html">
+            Explore Our Services →
+          </a>
+        </div>
+
+        <div class="about-visual">
+          <div class="big-icon">💡</div>
+          <h3>Connecting People, Business and Technology</h3>
+          <p>
+            Supporting smarter decisions through technology,
+            innovation and practical problem-solving.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section purpose">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Our Purpose</h2>
+          <p>
+            The principles that guide our work and shape the
+            technology solutions we aim to provide.
+          </p>
+        </div>
+
+        <div class="purpose-grid">
+
+          <article class="purpose-card">
+            <div class="purpose-icon">🎯</div>
+            <h3>Our Mission</h3>
+            <p>
+              To provide practical, accessible and reliable ICT
+              solutions that help clients solve technology
+              challenges, improve productivity and achieve
+              their digital goals.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <div class="purpose-icon">🚀</div>
+            <h3>Our Vision</h3>
+            <p>
+              To become a trusted technology partner known for
+              thoughtful ICT support, useful digital solutions
+              and a commitment to helping clients adapt to
+              an increasingly connected world.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Our Core Values</h2>
+          <p>
+            The standards we aim to bring to every client
+            interaction and every technology project.
+          </p>
+        </div>
+
+        <div class="values-grid">
+
+          <article class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Integrity</h3>
+            <p>
+              Honest communication, responsible decisions
+              and respect for our clients.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">⭐</div>
+            <h3>Quality</h3>
+            <p>
+              Thoughtful work and attention to the details
+              that matter.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">💡</div>
+            <h3>Innovation</h3>
+            <p>
+              Exploring useful ideas and better ways
+              to solve technology problems.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <div class="value-icon">🔐</div>
+            <h3>Responsibility</h3>
+            <p>
+              Respecting privacy and handling information
+              with care.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Let's Find the Right ICT Solution for You</h2>
+
+        <p>
+          Whether you need technical support, a website,
+          a network solution or professional technology advice,
+          let's discuss your requirements.
+        </p>
+
+        <a class="btn btn-primary" href="contact.html">
+          Contact Us Today →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year"></span> ICT Consulting.
+        All rights reserved.
+      </p>
+
+      <p>
+        <a href="index.html">Home</a> |
+        <a href="services.html">Services</a> |
+        <a href="contact.html">Contact</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
