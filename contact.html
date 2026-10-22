@@ -1,66 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Contact- ICT Consultant</title>
-  <link rel="stylesheet" href="style.css">
- </head>
- <body>
+  <title>Contact Us | Tech Solutions</title>
+  <meta name="description" content="Contact our ICT consulting team for IT support, web design, networking and cybersecurity services.">
 
- <header>
- <h1>CONTACT US</h1>
- </header>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
- <nav>
- <a href="index.html">Home</a>
- <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="portfolio.html">Portfolio</a>
-    <a href="blog.html">Blog</a>
- <a href="contact.html">Contact</a>
- </nav>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8ff;
+      color: #183153;
+      line-height: 1.6;
+    }
 
- <main>
- <h2>Contact Us</h2>
+    header {
+      background: #0b1f3a;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
- <form action="#" method="post" class="contact-form">
- 	<div class="form-row">
- 	<label for="name">First Name:</label>
- 	<input type="text" id="name" name="name"
-		placeholder="Enter your first name" required>
- </div>
-	 
-<div class="form-row">
- 	<label for="name">Last Name:</label>
- 	<input type="text" id="name" name="name"
-		placeholder="Enter your last name"required>
- </div>
-	 
-<div class="form-row">
-<label for="email">Email Address:</label>
- 	<input type="email" id="email" name="email"
-		placeholder="Enter your Email"required>
- 	</div>
-<div class="form-row">
- 	<label for="phone">Phone Number:</label>
- 	<input type="tel" id="phone" name="phone"
-		placeholder="Enter your phone number" required>
- </div>
-<div class="form-row">
- 	<label for="message">Your Message:</label>
- 	<textarea id="message" name="message" required></textarea>
- </div>
+    header h2 {
+      color: #60a5fa;
+    }
 
-<div class="form-row">
- 	<button type="submit">Send Message</button>
- </div>
- </form>
- </main>
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
 
- <footer>
- &copy;2025 ICT Consultant
- </footer>
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
- </body>
- </html>
+    nav a:hover,
+    nav a.active {
+      color: #60a5fa;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px;
+      background: linear-gradient(135deg, #0b1f3a, #1763c6);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #e0ecff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-info,
+    .contact-form {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(11, 31, 58, 0.08);
+    }
+
+    h2 {
+      margin-bottom: 18px;
+    }
+
+    .info-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #e6edf7;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-item h3 {
+      color: #1763c6;
+      margin-bottom: 5px;
+    }
+
+    .info-item a {
+      color: #183153;
+      overflow-wrap: anywhere;
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd8e8;
+      border-radius: 7px;
+      font: inherit;
+      background: white;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid #1763c6;
+      border-color: #1763c6;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+      border: none;
+      border-radius: 7px;
+      background: #1763c6;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0b1f3a;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: #0b1f3a;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 20px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Tech Solutions</h2>
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>
+      Have a question or need reliable IT solutions?
+      Get in touch with us. We are ready to help your
+      business succeed through technology.
+    </p>
+  </section>
+
+  <main class="container">
+    <div class="contact-grid">
+
+      <section class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Contact us for professional ICT support,
+          website development, networking, cybersecurity
+          and other technology solutions.
+        </p>
+
+        <div class="info-item">
+          <h3>📧 Email Us</h3>
+          <p>Replace with your business email</p>
+        </div>
+
+        <div class="info-item">
+          <h3>📞 Call Us</h3>
+          <p>Replace with your business phone number</p>
+        </div>
+
+        <div class="info-item">
+          <h3>📍 Location</h3>
+          <p>Kenya</p>
+        </div>
+
+        <div class="info-item">
+          <h3>🕒 Working Hours</h3>
+          <p>Monday – Friday</p>
+          <p>8:00 AM – 5:00 PM</p>
+        </div>
+      </section>
+
+      <section class="contact-form">
+        <h2>Send Us a Message</h2>
+
+        <form action="https://formsubmit.co/YOUR_EMAIL_HERE"
+              method="POST">
+
+          <input type="hidden" name="_subject"
+                 value="New ICT Consulting Website Enquiry">
+
+          <input type="hidden" name="_captcha"
+                 value="true">
+
+          <input type="hidden" name="_template"
+                 value="table">
+
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name"
+                 placeholder="Enter your full name"
+                 autocomplete="name" required>
+
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email"
+                 placeholder="Enter your email address"
+                 autocomplete="email" required>
+
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option>IT Support</option>
+            <option>Web Design</option>
+            <option>Computer Networking</option>
+            <option>Software Development</option>
+            <option>Cybersecurity</option>
+            <option>Hardware Repair</option>
+            <option>Database Management</option>
+            <option>IT Consultancy</option>
+            <option>Other</option>
+          </select>
+
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message"
+                    placeholder="Tell us how we can help..."
+                    required></textarea>
+
+          <button type="submit">Send Message →</button>
+
+          <p class="note">
+            Your details will be submitted to our email
+            after the form service is configured.
+          </p>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Tech Solutions. All rights reserved.</p>
+    <p>Professional ICT Solutions for Your Business</p>
+  </footer>
+
+</body>
+</html>
