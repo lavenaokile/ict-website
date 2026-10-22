@@ -1,49 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Services- ICT Consultant</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | ICT Consulting</title>
 
- </head>
- <body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
- <header>
- <h1>OUR SERVICES</h1>
- </header>
+        body {
+            font-family: Arial, sans-serif;
+            color: #334155;
+            background: #f8fafc;
+            line-height: 1.7;
+        }
 
- <nav>
- <a href="index.html">Home</a>
- <a href="about.html">About</a>
- <a href="services.html">Services</a>
- <a href="portfolio.html">Portfolio</a>
-    <a href="blog.html">Blog</a>
- <a href="contact.html">Contact</a>
+        header {
+            background: #ffffff;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
 
- </nav>
+        .logo {
+            color: #155eef;
+            font-size: 23px;
+            font-weight: bold;
+        }
 
- <main>
-<div class="image-text-box">
- <img src="ict-banner.jpg" alt="ICT Consultant" class="side-image" 
- <div class="text-content">
- 	<h2>OUR SERVICES</h2>
- 	<ul>
- 		<li><strong>Computer Repair and Maintanance:</strong>Strategic guidance for your business technology</li>
- 		<li><strong>Network and Wifi setup:</strong>Design and implementation of secure and scalable networks</li>
- 		<li><strong>Software Installation and support:</strong>Custom applications tailored to your needs</li>
- 		<li><strong>ICT Consultancy:</strong>Onsite and remote support for your systems and staff</li>
- 		<li><strong>Cloud and Data Backup:</strong>Migration and management of cloud-based infrastructure.</li>
-		<li><strong>Web design and Development:</strong>Migration and management of cloud-based infrastructure.</li>
-		<li><strong>Printer and Hardware support:</strong>Migration and management of cloud-based infrastructure.</li>
- 	</ul>
- </div>
-</div>
- </main>
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
 
- <footer>
- &copy;2025 ICT Consultant
- </footer>
+        nav a {
+            text-decoration: none;
+            color: #102a56;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
- </body>
- </html>
+        nav a:hover,
+        nav a.active {
+            color: #155eef;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #102a56, #155eef);
+            color: white;
+            text-align: center;
+            padding: 75px 7%;
+        }
+
+        .hero .label {
+            color: #bfdbfe;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin: 12px 0;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #e0eaff;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 65px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            color: #102a56;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: #64748b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 27px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(21, 94, 239, 0.10);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eff6ff;
+            border-radius: 12px;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            color: #102a56;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .why-us {
+            background: #ffffff;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit {
+            padding: 20px;
+            border-left: 4px solid #155eef;
+            background: #f8fafc;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .benefit h3 {
+            color: #102a56;
+            margin-bottom: 8px;
+        }
+
+        .benefit p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .cta {
+            margin: 60px 7%;
+            padding: 48px 25px;
+            background: #102a56;
+            color: white;
+            text-align: center;
+            border-radius: 18px;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #dbeafe;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #155eef;
+            color: white;
+            padding: 13px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #3778ff;
+        }
+
+        footer {
+            background: #081a36;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px 7%;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #bfdbfe;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .container {
+                padding: 45px 6%;
+            }
+
+            .cta {
+                margin: 35px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ICT Consulting</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <p class="label">What We Do</p>
+        <h1>Our ICT Services</h1>
+        <p>
+            Practical technology solutions to help individuals and
+            businesses work smarter, stay connected and grow with confidence.
+        </p>
+    </section>
+
+    <main>
+        <section class="container">
+            <div class="section-heading">
+                <h2>Technology Solutions for You</h2>
+                <p>
+                    Explore our services and find the right technology
+                    support for your needs.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>IT Support</h3>
+                    <p>
+                        Assistance with computer problems, software
+                        installation, system setup and routine maintenance.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Web Design</h3>
+                    <p>
+                        Modern, responsive websites designed to help
+                        businesses establish a professional online presence.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔗</div>
+                    <h3>Computer Networking</h3>
+                    <p>
+                        Network planning, Wi-Fi setup, connectivity
+                        troubleshooting and resource sharing.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Software Solutions</h3>
+                    <p>
+                        Help with selecting, installing and configuring
+                        software to improve everyday business operations.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Cybersecurity</h3>
+                    <p>
+                        Guidance on safer passwords, software updates,
+                        backups and protecting devices from common threats.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Hardware Support</h3>
+                    <p>
+                        Computer diagnostics, peripheral setup and
+                        troubleshooting hardware-related issues.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🗄️</div>
+                    <h3>Database Management</h3>
+                    <p>
+                        Support with organizing data, database setup,
+                        maintenance and reliable data handling.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>ICT Consultancy</h3>
+                    <p>
+                        Technology advice to help you choose suitable
+                        systems, plan IT improvements and manage resources.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="why-us">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Why Work With Us?</h2>
+                    <p>
+                        Our aim is to make technology simpler, more useful
+                        and more accessible.
+                    </p>
+                </div>
+
+                <div class="benefits">
+                    <div class="benefit">
+                        <h3>Practical Solutions</h3>
+                        <p>We focus on solutions that address real technology needs.</p>
+                    </div>
+
+                    <div class="benefit">
+                        <h3>Client-Focused Service</h3>
+                        <p>We listen to your needs and recommend suitable options.</p>
+                    </div>
+
+                    <div class="benefit">
+                        <h3>Reliable Support</h3>
+                        <p>We aim to provide clear guidance and dependable assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Need Help With Technology?</h2>
+            <p>
+                Tell us what you need, and let's explore the right solution
+                for your home or business.
+            </p>
+            <a href="contact.html" class="btn">Contact Us Today</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> ICT Consulting. All rights reserved.</p>
+        <p><a href="contact.html">Get in touch with us</a></p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
